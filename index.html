@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Liberty Plants | Locally &amp; Sustainably Grown Flowers &amp; Plants</title>
+<meta name="description" content="Liberty Plants grows specialty cut flowers and heirloom plants, locally and sustainably. Find us at the Chestnut Hill Farmer's Market or order for weddings, events, and wholesale." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Color system */
+    --bg: #faf8f2;
+    --surface: #ffffff;
+    --surface-alt: #f2efe4;
+    --ink: #253027;
+    --muted: #5c6b5f;
+    --line: #e4dfd1;
+
+    /* Accent + floral */
+    --accent: #3f7d5b;
+    --accent-dark: #2d5c42;
+    --accent-soft: #e3efe7;
+    --bloom: #d87089;
+    --bloom-soft: #f6e0e5;
+    --sun: #e9b84a;
+
+    /* Type */
+    --display: "Fraunces", Georgia, "Times New Roman", serif;
+    --body: "Nunito Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+    /* Shape */
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 18px 40px -24px rgba(37, 48, 39, 0.45);
+    --shadow-soft: 0 10px 28px -20px rgba(37, 48, 39, 0.4);
+    --maxw: 1140px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: var(--accent-dark); text-decoration: none; }
+
+  h1, h2, h3 {
+    font-family: var(--display);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 0.98rem;
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent-dark);
+    border-color: var(--accent);
+  }
+  .btn-ghost:hover { background: var(--accent-soft); transform: translateY(-2px); }
+
+  /* ---------- NAV ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 248, 242, 0.88);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 18px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .brand .mark {
+    width: 38px; height: 38px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    background: var(--accent-soft);
+    border-radius: 50%;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a {
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 0;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.2s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta { display: inline-flex; }
+  .nav-toggle { display: none; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(900px 500px at 85% -10%, var(--bloom-soft), transparent 60%),
+      radial-gradient(700px 500px at -5% 20%, var(--accent-soft), transparent 55%),
+      var(--bg);
+    padding: 76px 0 84px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--accent-dark);
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 8px 15px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-soft);
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.3rem);
+    margin: 22px 0 18px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-dark);
+  }
+  .hero p.lede {
+    font-size: 1.18rem;
+    color: var(--muted);
+    max-width: 30ch;
+    margin: 0 0 30px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  /* Hero art */
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 28px;
+    background:
+      linear-gradient(160deg, #eef5ee 0%, #f9eef0 100%);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .hero-art .badge {
+    position: absolute;
+    bottom: 18px; left: 18px;
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    box-shadow: var(--shadow-soft);
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-art .badge small { display: block; font-weight: 500; color: var(--muted); font-size: 0.74rem; }
+
+  /* ---------- TRUST BAND ---------- */
+  .trust {
+    background: var(--accent-dark);
+    color: #eef4ef;
+  }
+  .trust-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 30px 0;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .trust-item .ic {
+    width: 42px; height: 42px;
+    flex: 0 0 auto;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,0.12);
+    border-radius: 50%;
+  }
+  .trust-item strong { font-size: 1rem; display: block; color: #fff; }
+  .trust-item span { font-size: 0.86rem; color: #c5d6c9; }
+
+  /* ---------- SECTION ---------- */
+  section.block { padding: 84px 0; }
+  .section-head { max-width: 640px; margin: 0 auto 46px; text-align: center; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 14px; }
+  .section-head p { color: var(--muted); margin: 0; font-size: 1.08rem; }
+
+  /* Offerings */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .card .card-ic {
+    width: 54px; height: 54px;
+    display: grid; place-items: center;
+    background: var(--accent-soft);
+    border-radius: 14px;
+    margin-bottom: 18px;
+  }
+  .card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 0.99rem; }
+  .card a.more {
+    font-weight: 700;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card a.more:hover { gap: 10px; }
+
+  /* ---------- FIND US ---------- */
+  .findus { background: var(--surface-alt); }
+  .findus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px;
+    align-items: center;
+  }
+  .market-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .market-card .map {
+    height: 190px;
+    background:
+      radial-gradient(circle at 30% 40%, var(--accent-soft), transparent 45%),
+      repeating-linear-gradient(45deg, #eef2ea 0 18px, #e7ede3 18px 36px);
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    display: grid; place-items: center;
+  }
+  .market-card .map .pin {
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 8px 15px;
+    font-weight: 700;
+    font-size: 0.86rem;
+    box-shadow: var(--shadow-soft);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .market-card .body { padding: 26px 28px; }
+  .market-card ul { list-style: none; margin: 16px 0 0; padding: 0; }
+  .market-card li {
+    display: flex;
+    gap: 12px;
+    padding: 11px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.98rem;
+  }
+  .market-card li:first-child { border-top: 0; }
+  .market-card li .k { font-weight: 700; min-width: 112px; flex: 0 0 auto; }
+  .market-card li .v { color: var(--muted); }
+
+  .findus-copy h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 16px; }
+  .findus-copy p { color: var(--muted); margin: 0 0 18px; }
+
+  /* ---------- NEWSLETTER (the fixed form) ---------- */
+  .newsletter {
+    background:
+      radial-gradient(700px 420px at 100% 0, var(--bloom-soft), transparent 60%),
+      var(--accent-dark);
+    color: #eef4ef;
+  }
+  .nl-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 46px;
+    align-items: center;
+    padding: 70px 0;
+  }
+  .nl-copy h2 { color: #fff; font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 12px; }
+  .nl-copy p { color: #cfe0d4; margin: 0; }
+  .nl-form {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    color: var(--ink);
+  }
+  .nl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .field input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-sm);
+    font-family: var(--body);
+    font-size: 1rem;
+    color: var(--ink);
+    background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .nl-form .btn { width: 100%; justify-content: center; margin-top: 4px; }
+  .nl-form .privacy { font-size: 0.82rem; color: var(--muted); text-align: center; margin: 14px 0 0; }
+  .nl-success {
+    display: none;
+    text-align: center;
+    padding: 18px 0;
+  }
+  .nl-success.show { display: block; }
+  .nl-success .check {
+    width: 56px; height: 56px;
+    margin: 0 auto 12px;
+    display: grid; place-items: center;
+    background: var(--accent-soft);
+    border-radius: 50%;
+  }
+  .nl-success h3 { font-size: 1.5rem; margin-bottom: 6px; }
+  .nl-success p { color: var(--muted); margin: 0; }
+
+  /* ---------- FOOTER ---------- */
+  footer.site {
+    background: #20291f;
+    color: #c7d3c8;
+    padding: 60px 0 30px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 36px;
+    padding-bottom: 42px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .foot-brand .brand { color: #fff; margin-bottom: 14px; }
+  .foot-brand .brand .mark { background: rgba(255,255,255,0.1); }
+  .foot-brand p { font-size: 0.95rem; color: #a8b7aa; max-width: 34ch; margin: 0 0 18px; }
+  .socials { display: flex; gap: 12px; }
+  .socials a {
+    width: 40px; height: 40px;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+  .socials a:hover { background: var(--accent); transform: translateY(-2px); }
+  .foot-col h4 {
+    font-family: var(--body);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8a9a8c;
+    margin: 0 0 16px;
+    font-weight: 700;
+  }
+  .foot-col ul { list-style: none; margin: 0; padding: 0; }
+  .foot-col li { margin-bottom: 10px; }
+  .foot-col a { color: #c7d3c8; font-size: 0.95rem; }
+  .foot-col a:hover { color: #fff; }
+  .foot-contact p { font-size: 0.95rem; color: #c7d3c8; margin: 0 0 14px; }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    font-size: 0.85rem;
+    color: #8a9a8c;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 920px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .hero-art { max-width: 440px; }
+    .findus-grid { grid-template-columns: 1fr; gap: 30px; }
+    .nl-grid { grid-template-columns: 1fr; gap: 30px; padding: 54px 0; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  }
+  @media (max-width: 760px) {
+    .nav-links {
+      position: absolute;
+      top: 72px; left: 0; right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 24px 22px;
+      display: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { width: 100%; padding: 10px 0; }
+    .nav-cta { display: none; }
+    .nav-toggle {
+      display: inline-grid;
+      place-items: center;
+      width: 44px; height: 44px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .trust-inner { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+    .cards { grid-template-columns: 1fr; }
+    .nl-row { grid-template-columns: 1fr; }
+    section.block { padding: 60px 0; }
+  }
+  @media (max-width: 520px) {
+    .foot-grid { grid-template-columns: 1fr; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21c0-6 2-9 8-11-1 6-3 9-8 11z"/>
+          <path d="M12 21C12 15 10 12 4 10c1 6 3 9 8 11z"/>
+          <path d="M12 21v-9"/>
+        </svg>
+      </span>
+      Liberty Plants
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#grow">Weddings &amp; Events</a></li>
+        <li><a href="#grow">Wholesale</a></li>
+        <li><a href="#grow">Shop</a></li>
+        <li><a href="#findus">Find our Flowers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#findus" class="btn btn-primary nav-cta">Find our flowers</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#253027" stroke-width="2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#3f7d5b"><circle cx="12" cy="12" r="5"/></svg>
+        Locally &amp; sustainably grown
+      </span>
+      <h1>Welcome to <em>Liberty Plants</em></h1>
+      <p class="lede">Specialty cut flowers and heirloom plants, grown with care and in season.</p>
+      <div class="hero-actions">
+        <a href="#findus" class="btn btn-primary">Find our flowers</a>
+        <a href="#grow" class="btn btn-ghost">See what we grow</a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg width="62%" viewBox="0 0 220 220" fill="none">
+        <!-- stem -->
+        <path d="M110 200 C110 150 110 120 110 96" stroke="#3f7d5b" stroke-width="4" stroke-linecap="round"/>
+        <!-- leaves -->
+        <path d="M110 150 C86 142 74 150 70 134 C92 130 104 138 110 150z" fill="#4e8e68"/>
+        <path d="M110 168 C134 160 146 168 150 152 C128 148 116 156 110 168z" fill="#3f7d5b"/>
+        <!-- bloom petals -->
+        <g>
+          <ellipse cx="110" cy="70" rx="15" ry="26" fill="#d87089"/>
+          <ellipse cx="110" cy="70" rx="15" ry="26" fill="#d87089" transform="rotate(60 110 70)"/>
+          <ellipse cx="110" cy="70" rx="15" ry="26" fill="#e18aa0" transform="rotate(120 110 70)"/>
+          <ellipse cx="110" cy="70" rx="15" ry="26" fill="#d87089" transform="rotate(30 110 70)"/>
+          <ellipse cx="110" cy="70" rx="15" ry="26" fill="#e18aa0" transform="rotate(90 110 70)"/>
+          <ellipse cx="110" cy="70" rx="15" ry="26" fill="#d87089" transform="rotate(150 110 70)"/>
+          <circle cx="110" cy="70" r="11" fill="#e9b84a"/>
+        </g>
+      </svg>
+      <div class="badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Chestnut Hill Farmer's Market<small>Saturdays, April to November</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST BAND ================= -->
+<section class="trust">
+  <div class="wrap trust-inner">
+    <div class="trust-item">
+      <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6 2-9 8-11-1 6-3 9-8 11z"/><path d="M12 21C12 15 10 12 4 10c1 6 3 9 8 11z"/></svg></span>
+      <div><strong>Locally grown</strong><span>Raised right here, not shipped in</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 18 0"/><path d="M12 3v9l5 3"/></svg></span>
+      <div><strong>Grown sustainably</strong><span>Kinder growing, season after season</span></div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
+      <div><strong>Fresh and seasonal</strong><span>Cut and gathered in their own time</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE GROW ================= -->
+<section class="block" id="grow">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we grow &amp; offer</p>
+      <h2>From the field to your table</h2>
+      <p>Specialty cut flowers and heirloom plants for everyday joy, big celebrations, and the florists and shops we supply.</p>
+    </div>
+    <div class="cards">
+
+      <article class="card">
+        <span class="card-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M12 10v11"/><path d="M12 14c-3 0-5-1-6-3M12 14c3 0 5-1 6-3"/></svg></span>
+        <h3>Specialty cut flowers</h3>
+        <p>Seasonal blooms grown for color and fragrance, ready as fresh market bunches or by the bucket.</p>
+        <a class="more" href="#findus">Find them at market <span>&rarr;</span></a>
+      </article>
+
+      <article class="card">
+        <span class="card-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V9"/><path d="M12 9c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 13c0-3-2-5-6-5 0 3 2 5 6 5z"/></svg></span>
+        <h3>Heirloom plants</h3>
+        <p>Time honored varieties, started with care so they thrive once they reach your garden.</p>
+        <a class="more" href="#contact">Ask what is ready <span>&rarr;</span></a>
+      </article>
+
+      <article class="card">
+        <span class="card-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4-9-9c-1.5-4 3-7 6-3 1 1.5 3 1.5 4 0 3-4 7.5-1 6 3-2 5-7 9-7 9z"/></svg></span>
+        <h3>Weddings &amp; events</h3>
+        <p>Locally grown flowers for your celebration, arranged around the season you are planning for.</p>
+        <a class="more" href="#contact">Start a conversation <span>&rarr;</span></a>
+      </article>
+
+      <article class="card">
+        <span class="card-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.5 11a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span>
+        <h3>Wholesale &amp; florist pick-ups</h3>
+        <p>Pre-ordered bulk buckets and florist pick-ups, gathered fresh and ready at the market.</p>
+        <a class="more" href="#contact">Enquire about wholesale <span>&rarr;</span></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FIND US ================= -->
+<section class="block findus" id="findus">
+  <div class="wrap findus-grid">
+    <div class="findus-copy">
+      <p class="eyebrow">Find our flowers</p>
+      <h2>Come say hello at the market</h2>
+      <p>You can find our flowers at the Chestnut Hill Farmer's Market on Saturdays. We are there most Saturdays through the growing season, with fresh bunches, bulk buckets, and florist pick-ups.</p>
+      <p>Prefer to plan ahead? Pre-ordered bulk buckets and pick-ups in Trappe are available by appointment. Follow along on Instagram for the week to week schedule.</p>
+      <a href="#contact" class="btn btn-primary">Plan a pick-up</a>
+    </div>
+
+    <div class="market-card">
+      <div class="map" aria-hidden="true">
+        <span class="pin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="1.8" stroke-linecap="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Chestnut Hill Farmer's Market
+        </span>
+      </div>
+      <div class="body">
+        <h3 style="font-size:1.35rem;">Where to find us</h3>
+        <ul>
+          <li><span class="k">Market</span><span class="v">Chestnut Hill Farmer's Market</span></li>
+          <li><span class="k">Day</span><span class="v">Saturdays, 9am to 12pm</span></li>
+          <li><span class="k">Season</span><span class="v">Most Saturdays, April to November</span></li>
+          <li><span class="k">At market</span><span class="v">Bulk buckets and florist pick-ups, pre-order welcome</span></li>
+          <li><span class="k">Pick-up</span><span class="v">Trappe, by appointment only</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER (THE FIXED FORM) ================= -->
+<section class="newsletter" id="contact">
+  <div class="wrap nl-grid">
+    <div class="nl-copy">
+      <p class="eyebrow" style="color:#9fd0b0;">Let's stay connected</p>
+      <h2>Let's stay connected!</h2>
+      <p>Sign up with your email address to receive updates and special offers, plus a heads up on what is blooming and when we will be at market.</p>
+    </div>
+
+    <div class="nl-form">
+      <form id="nlForm" novalidate>
+        <div class="nl-row">
+          <div class="field">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="fname" placeholder="First name" autocomplete="given-name" />
+          </div>
+          <div class="field">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname" placeholder="Last name" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Sign up</button>
+        <p class="privacy">We respect your privacy.</p>
+      </form>
+
+      <div class="nl-success" id="nlSuccess" role="status" aria-live="polite">
+        <span class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3f7d5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3>Thank you!</h3>
+        <p>You are on the list. We will be in touch when the next blooms are ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand">
+          <span class="mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9fd0b0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6 2-9 8-11-1 6-3 9-8 11z"/><path d="M12 21C12 15 10 12 4 10c1 6 3 9 8 11z"/><path d="M12 21v-9"/></svg>
+          </span>
+          Liberty Plants
+        </span>
+        <p>Locally and sustainably grown specialty cut flowers and heirloom plants.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/libertyplants/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#c7d3c8"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H7v4h3v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>
+          </a>
+          <a href="http://www.instagram.com/libertyplants" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c7d3c8" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#c7d3c8" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#grow">Weddings &amp; events</a></li>
+          <li><a href="#grow">Wholesale</a></li>
+          <li><a href="#grow">Shop</a></li>
+          <li><a href="#findus">Find our flowers</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>At the market</h4>
+        <ul>
+          <li><a href="#findus">Chestnut Hill Farmer's Market</a></li>
+          <li><a href="#findus">Saturdays, 9am to 12pm</a></li>
+          <li><a href="#findus">April to November</a></li>
+          <li><a href="#findus">Trappe pick-up by appointment</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col foot-contact">
+        <h4>Get in touch</h4>
+        <p>Questions about weddings, wholesale, or a market pick-up? We would love to hear from you.</p>
+        <a href="#contact" class="btn btn-ghost" style="color:#c7d3c8;border-color:rgba(255,255,255,0.25);">Contact us</a>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>&copy; 2026 Liberty Plants. All photos and images &copy; Liberty Plants. All Rights Reserved.</span>
+      <span>Locally &amp; sustainably grown.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      links.classList.toggle('open');
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') links.classList.remove('open');
+    });
+  }
+
+  // Newsletter form: shows a clean confirmation instead of the old storage error
+  var form = document.getElementById('nlForm');
+  var success = document.getElementById('nlSuccess');
+  if (form && success) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('email');
+      if (!email.value || email.value.indexOf('@') === -1) {
+        email.focus();
+        email.style.borderColor = '#d87089';
+        return;
+      }
+      form.style.display = 'none';
+      success.classList.add('show');
+    });
+  }
+</script>
+
+</body>
+</html>
